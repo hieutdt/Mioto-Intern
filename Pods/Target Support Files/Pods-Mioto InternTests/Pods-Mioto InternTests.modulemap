@@ -1,0 +1,6 @@
+framework module Pods_Mioto_InternTests {
+  umbrella header "Pods-Mioto InternTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

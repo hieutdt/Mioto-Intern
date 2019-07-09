@@ -1,0 +1,6 @@
+framework module Pods_Mioto_Intern {
+  umbrella header "Pods-Mioto Intern-umbrella.h"
+
+  export *
+  module * { export * }
+}
