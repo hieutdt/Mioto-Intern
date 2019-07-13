@@ -43,7 +43,8 @@
 - (void) viewDidLoad {
     [super viewDidLoad];
     
-    [imageView_Background setImage:[UIImage imageNamed:@"background_authentication_screen.jpg"]];
+    //set background
+    [imageView_Background setImage:[UIImage imageNamed:@"background"]];
     
     [textField_Name setBottomBorder];
     [textField_EmailOrPhone setBottomBorder];
@@ -91,16 +92,29 @@
 
 //Sign Up new User --------------------------------------------------------------------
 - (IBAction)signUpOnClick:(id)sender {
+    //Check password
+    if (![textField_Password.text isEqualToString:textField_PasswordAgain.text]) {
+        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Mật khẩu không trùng khớp" message:@"Vui lòng kiểm tra và thử lại!" preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* yesButton = [UIAlertAction
+                                    actionWithTitle:@"Yes"
+                                    style:UIAlertActionStyleDefault
+                                    handler:^(UIAlertAction * action) {
+                                        //nothing
+                                    }];
+        
+        [alert addAction:yesButton];
+        [self presentViewController:alert animated:YES completion:nil];
+        return;
+    }
+    
     self.ref = [[FIRDatabase database] reference];
     
     if (self.ref != nil) {
         [[FIRAuth auth] createUserWithEmail:textField_EmailOrPhone.text password:textField_Password.text completion:^(FIRAuthDataResult * _Nullable authResult, NSError * _Nullable error) {
             
-            //add new user to Users table in database
-            [[[self.ref child:@"users"] child:authResult.user.uid] setValue:@{@"name": self->textField_Name.text}];
-            
             //add new user to Info table
-            [[self.ref child:authResult.user.uid] setValue:@{@"name": self->textField_Name.text, @"birth": @"1/1/1900", @"email": self->textField_EmailOrPhone.text, @"gender:": @"Nam", @"avatar": @"nil"}];
+            [[self.ref child:authResult.user.uid] setValue:@{@"name": self->textField_Name.text, @"birth": @"1/1/1900", @"email": self->textField_EmailOrPhone.text, @"gender": @"Nam", @"avatar": @"nil"}];
             
             
             [self dismissViewControllerAnimated:true completion:nil];

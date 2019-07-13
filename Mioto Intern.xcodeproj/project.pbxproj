@@ -13,11 +13,13 @@
 		0452EB2122CB9AAE00319783 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0452EB2022CB9AAE00319783 /* AppDelegate.m */; };
 		0452EB2422CB9AAE00319783 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0452EB2322CB9AAE00319783 /* ViewController.m */; };
 		0452EB2722CB9AAE00319783 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0452EB2522CB9AAE00319783 /* Main.storyboard */; };
-		0452EB2922CB9AB000319783 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0452EB2822CB9AB000319783 /* Assets.xcassets */; };
 		0452EB2C22CB9AB000319783 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0452EB2A22CB9AB000319783 /* LaunchScreen.storyboard */; };
 		0452EB2F22CB9AB000319783 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0452EB2E22CB9AB000319783 /* main.m */; };
 		0452EB3922CB9AB000319783 /* Mioto_InternTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0452EB3822CB9AB000319783 /* Mioto_InternTests.m */; };
 		0478298522D83F3900C189AF /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0478298422D83F3900C189AF /* ProfileViewController.m */; };
+		049DAF8822D9CD7F0085A1FB /* TabBarControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049DAF8722D9CD7F0085A1FB /* TabBarControllerViewController.m */; };
+		049DAF8C22D9CF3B0085A1FB /* FriendListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049DAF8B22D9CF3B0085A1FB /* FriendListViewController.m */; };
+		049DAF9122D9DEF80085A1FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 049DAF9022D9DEF80085A1FB /* Assets.xcassets */; };
 		04DEA99A22D8244600DF2A49 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04DEA99622D8244600DF2A49 /* FBSDKLoginKit.framework */; };
 		04DEA99B22D8244600DF2A49 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04DEA99722D8244600DF2A49 /* Bolts.framework */; };
 		04DEA99C22D8244600DF2A49 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04DEA99822D8244600DF2A49 /* FBSDKCoreKit.framework */; };
@@ -48,7 +50,6 @@
 		0452EB2222CB9AAE00319783 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		0452EB2322CB9AAE00319783 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		0452EB2622CB9AAE00319783 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		0452EB2822CB9AB000319783 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0452EB2B22CB9AB000319783 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0452EB2D22CB9AB000319783 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0452EB2E22CB9AB000319783 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -57,6 +58,11 @@
 		0452EB3A22CB9AB000319783 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0478298322D83F3900C189AF /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		0478298422D83F3900C189AF /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		049DAF8622D9CD7F0085A1FB /* TabBarControllerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabBarControllerViewController.h; sourceTree = "<group>"; };
+		049DAF8722D9CD7F0085A1FB /* TabBarControllerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabBarControllerViewController.m; sourceTree = "<group>"; };
+		049DAF8A22D9CF3B0085A1FB /* FriendListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendListViewController.h; sourceTree = "<group>"; };
+		049DAF8B22D9CF3B0085A1FB /* FriendListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendListViewController.m; sourceTree = "<group>"; };
+		049DAF9022D9DEF80085A1FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04DEA99622D8244600DF2A49 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		04DEA99722D8244600DF2A49 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = FacebookSDK/Bolts.framework; sourceTree = "<group>"; };
 		04DEA99822D8244600DF2A49 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
@@ -148,9 +154,11 @@
 				0478298622D83F4100C189AF /* ProfileView */,
 				0447638422CDDCFA00782E10 /* UITextField */,
 				0400126422D87083003903EF /* AppDelegate */,
-				0452EB2522CB9AAE00319783 /* Main.storyboard */,
-				0452EB2822CB9AB000319783 /* Assets.xcassets */,
+				049DAF8922D9CE9B0085A1FB /* TabBarControllerView */,
+				049DAF8D22D9D5630085A1FB /* FriendListView */,
 				0433E43622D7564B00360CB4 /* GoogleService-Info.plist */,
+				0452EB2522CB9AAE00319783 /* Main.storyboard */,
+				049DAF9022D9DEF80085A1FB /* Assets.xcassets */,
 				0452EB2A22CB9AB000319783 /* LaunchScreen.storyboard */,
 				0452EB2D22CB9AB000319783 /* Info.plist */,
 				0452EB2E22CB9AB000319783 /* main.m */,
@@ -183,6 +191,24 @@
 				0478298422D83F3900C189AF /* ProfileViewController.m */,
 			);
 			name = ProfileView;
+			sourceTree = "<group>";
+		};
+		049DAF8922D9CE9B0085A1FB /* TabBarControllerView */ = {
+			isa = PBXGroup;
+			children = (
+				049DAF8622D9CD7F0085A1FB /* TabBarControllerViewController.h */,
+				049DAF8722D9CD7F0085A1FB /* TabBarControllerViewController.m */,
+			);
+			name = TabBarControllerView;
+			sourceTree = "<group>";
+		};
+		049DAF8D22D9D5630085A1FB /* FriendListView */ = {
+			isa = PBXGroup;
+			children = (
+				049DAF8A22D9CF3B0085A1FB /* FriendListViewController.h */,
+				049DAF8B22D9CF3B0085A1FB /* FriendListViewController.m */,
+			);
+			name = FriendListView;
 			sourceTree = "<group>";
 		};
 		87510334035EC72FBA27D53D /* Frameworks */ = {
@@ -294,7 +320,7 @@
 			files = (
 				0452EB2C22CB9AB000319783 /* LaunchScreen.storyboard in Resources */,
 				0433E43722D7564B00360CB4 /* GoogleService-Info.plist in Resources */,
-				0452EB2922CB9AB000319783 /* Assets.xcassets in Resources */,
+				049DAF9122D9DEF80085A1FB /* Assets.xcassets in Resources */,
 				0452EB2722CB9AAE00319783 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -377,11 +403,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				049DAF8C22D9CF3B0085A1FB /* FriendListViewController.m in Sources */,
 				0452EB2422CB9AAE00319783 /* ViewController.m in Sources */,
 				0447638722CDDD4F00782E10 /* SignUpViewController.m in Sources */,
 				0452EB2F22CB9AB000319783 /* main.m in Sources */,
 				0452EB2122CB9AAE00319783 /* AppDelegate.m in Sources */,
 				0478298522D83F3900C189AF /* ProfileViewController.m in Sources */,
+				049DAF8822D9CD7F0085A1FB /* TabBarControllerViewController.m in Sources */,
 				04009F1322CBAE7300266A16 /* UITextField.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

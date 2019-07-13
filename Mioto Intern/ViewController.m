@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "ProfileViewController.h"
+#import "TabBarControllerViewController.h"
 
 @interface ViewController ()
 
@@ -35,7 +35,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [imageView_Background setImage:[UIImage imageNamed:@"background_authentication_screen.jpg"]];
+    //set background
+    [imageView_Background setImage:[UIImage imageNamed:@"background"]];
     
     
     [textField_Username setBottomBorder];
@@ -56,21 +57,23 @@
     [self performSegueWithIdentifier:@"SignUpSegue" sender:self];
 }
 
+//LOG IN CLICK--------------------------------------------------------------
 - (IBAction)logInOnClick:(id)sender {
     //Email/password auth
     self.ref = [[FIRDatabase database] reference];
     
     [[FIRAuth auth] signInWithEmail:textField_Username.text password:textField_Password.text completion:^(FIRAuthDataResult *_Nullable authData, NSError *_Nullable error) {
         if (authData) {
-            [self performSegueWithIdentifier:@"ProfileSegue" sender:self];
+            self.uid = authData.user.uid;
+            [self performSegueWithIdentifier:@"TabBarSegue" sender:self];
         }
     }];
 }
 
-//prepare to pass data to Profile view controller
+//prepare to pass data to Tab bar view controller
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"ProfileSegue"]) {
-        ProfileViewController *destinationVC = segue.destinationViewController;
+    if ([segue.identifier isEqualToString:@"TabBarSegue"]) {
+        TabBarControllerViewController *destinationVC = segue.destinationViewController;
         NSLog(@"Source's uid is %@", self.uid);
         destinationVC.uid = self.uid;
     }
@@ -115,7 +118,7 @@
                 [FBSDKProfile loadCurrentProfileWithCompletion:
                  ^(FBSDKProfile *profile, NSError *error) {
                      
-                     [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters: @{@"fields":@"id, name, first_name, last_name, picture.type(large), email, gender, cover.type(large)"}]
+                     [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters: @{@"fields":@"id, name, first_name, last_name, picture.type(large), email, gender"}]
                       startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
                           if (!error) {
                               //get data from result
@@ -128,24 +131,16 @@
                               
                               
                               //write to Profile table of Firebase database
-                              [[self.ref child:facebookID] setValue:@{@"name": name, @"birth": @"1/1/1900", @"email": email, @"gender:": @"Nam", @"avatar": avatarURL}];
+                              [[self.ref child:facebookID] setValue:@{@"name": name, @"birth": @"1/1/1900", @"email": email, @"gender": @"Nam", @"avatar": avatarURL}];
                               
                               //set UID to pass to Profile view controller
                               self.uid = [facebookID copy];
                               
                               //open Profile view controller
-                              [self performSegueWithIdentifier:@"ProfileSegue" sender:self];
+                              [self performSegueWithIdentifier:@"TabBarSegue" sender:self];
                           }
                       }];
                  }];
-                
-                //sign out after
-                NSError *signOutError;
-                BOOL status = [[FIRAuth auth] signOut:&signOutError];
-                if (!status) {
-                    NSLog(@"Error signing out!");
-                    return;
-                }
             }
         }
     }];
