@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		04009F1322CBAE7300266A16 /* UITextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 04009F1222CBAE7300266A16 /* UITextField.m */; };
+		0433E43722D7564B00360CB4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0433E43622D7564B00360CB4 /* GoogleService-Info.plist */; };
 		0447638722CDDD4F00782E10 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0447638622CDDD4F00782E10 /* SignUpViewController.m */; };
 		0452EB2122CB9AAE00319783 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0452EB2022CB9AAE00319783 /* AppDelegate.m */; };
 		0452EB2422CB9AAE00319783 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0452EB2322CB9AAE00319783 /* ViewController.m */; };
@@ -16,6 +17,11 @@
 		0452EB2C22CB9AB000319783 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0452EB2A22CB9AB000319783 /* LaunchScreen.storyboard */; };
 		0452EB2F22CB9AB000319783 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0452EB2E22CB9AB000319783 /* main.m */; };
 		0452EB3922CB9AB000319783 /* Mioto_InternTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0452EB3822CB9AB000319783 /* Mioto_InternTests.m */; };
+		0478298522D83F3900C189AF /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0478298422D83F3900C189AF /* ProfileViewController.m */; };
+		04DEA99A22D8244600DF2A49 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04DEA99622D8244600DF2A49 /* FBSDKLoginKit.framework */; };
+		04DEA99B22D8244600DF2A49 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04DEA99722D8244600DF2A49 /* Bolts.framework */; };
+		04DEA99C22D8244600DF2A49 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04DEA99822D8244600DF2A49 /* FBSDKCoreKit.framework */; };
+		04DEA99D22D8244600DF2A49 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04DEA99922D8244600DF2A49 /* FBSDKShareKit.framework */; };
 		38AF8E6CAFAF29627B6FFD3F /* Pods_Mioto_InternTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3DF3FAFAA009FEA9B452F50 /* Pods_Mioto_InternTests.framework */; };
 		5BCAE3FC14F5D79E899FB013 /* Pods_Mioto_Intern.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A5C9E9936A3E01672B68DE6 /* Pods_Mioto_Intern.framework */; };
 /* End PBXBuildFile section */
@@ -33,6 +39,7 @@
 /* Begin PBXFileReference section */
 		04009F1122CBAE7300266A16 /* UITextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UITextField.h; sourceTree = "<group>"; };
 		04009F1222CBAE7300266A16 /* UITextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UITextField.m; sourceTree = "<group>"; };
+		0433E43622D7564B00360CB4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0447638522CDDD4F00782E10 /* SignUpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
 		0447638622CDDD4F00782E10 /* SignUpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		0452EB1C22CB9AAE00319783 /* Mioto Intern.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mioto Intern.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -48,6 +55,12 @@
 		0452EB3422CB9AB000319783 /* Mioto InternTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Mioto InternTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0452EB3822CB9AB000319783 /* Mioto_InternTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mioto_InternTests.m; sourceTree = "<group>"; };
 		0452EB3A22CB9AB000319783 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0478298322D83F3900C189AF /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		0478298422D83F3900C189AF /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		04DEA99622D8244600DF2A49 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		04DEA99722D8244600DF2A49 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = FacebookSDK/Bolts.framework; sourceTree = "<group>"; };
+		04DEA99822D8244600DF2A49 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		04DEA99922D8244600DF2A49 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
 		1EF1046E45B9E6FD31CF8A7D /* Pods-Mioto InternTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mioto InternTests.release.xcconfig"; path = "Target Support Files/Pods-Mioto InternTests/Pods-Mioto InternTests.release.xcconfig"; sourceTree = "<group>"; };
 		370414E033EF303FD68D8715 /* Pods-Mioto Intern.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mioto Intern.release.xcconfig"; path = "Target Support Files/Pods-Mioto Intern/Pods-Mioto Intern.release.xcconfig"; sourceTree = "<group>"; };
 		6A5C9E9936A3E01672B68DE6 /* Pods_Mioto_Intern.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mioto_Intern.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,6 +74,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04DEA99B22D8244600DF2A49 /* Bolts.framework in Frameworks */,
+				04DEA99C22D8244600DF2A49 /* FBSDKCoreKit.framework in Frameworks */,
+				04DEA99D22D8244600DF2A49 /* FBSDKShareKit.framework in Frameworks */,
+				04DEA99A22D8244600DF2A49 /* FBSDKLoginKit.framework in Frameworks */,
 				5BCAE3FC14F5D79E899FB013 /* Pods_Mioto_Intern.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -76,6 +93,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0400126422D87083003903EF /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				0452EB2022CB9AAE00319783 /* AppDelegate.m */,
+				0452EB1F22CB9AAE00319783 /* AppDelegate.h */,
+			);
+			name = AppDelegate;
+			sourceTree = "<group>";
+		};
 		0447638422CDDCFA00782E10 /* UITextField */ = {
 			isa = PBXGroup;
 			children = (
@@ -118,12 +144,13 @@
 			isa = PBXGroup;
 			children = (
 				0447638822CDDD5400782E10 /* SignUpView */,
-				0447638422CDDCFA00782E10 /* UITextField */,
 				0452EB4422CB9BA200319783 /* LogInView */,
-				0452EB1F22CB9AAE00319783 /* AppDelegate.h */,
-				0452EB2022CB9AAE00319783 /* AppDelegate.m */,
+				0478298622D83F4100C189AF /* ProfileView */,
+				0447638422CDDCFA00782E10 /* UITextField */,
+				0400126422D87083003903EF /* AppDelegate */,
 				0452EB2522CB9AAE00319783 /* Main.storyboard */,
 				0452EB2822CB9AB000319783 /* Assets.xcassets */,
+				0433E43622D7564B00360CB4 /* GoogleService-Info.plist */,
 				0452EB2A22CB9AB000319783 /* LaunchScreen.storyboard */,
 				0452EB2D22CB9AB000319783 /* Info.plist */,
 				0452EB2E22CB9AB000319783 /* main.m */,
@@ -149,10 +176,23 @@
 			name = LogInView;
 			sourceTree = "<group>";
 		};
+		0478298622D83F4100C189AF /* ProfileView */ = {
+			isa = PBXGroup;
+			children = (
+				0478298322D83F3900C189AF /* ProfileViewController.h */,
+				0478298422D83F3900C189AF /* ProfileViewController.m */,
+			);
+			name = ProfileView;
+			sourceTree = "<group>";
+		};
 		87510334035EC72FBA27D53D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				6A5C9E9936A3E01672B68DE6 /* Pods_Mioto_Intern.framework */,
+				04DEA99722D8244600DF2A49 /* Bolts.framework */,
+				04DEA99822D8244600DF2A49 /* FBSDKCoreKit.framework */,
+				04DEA99622D8244600DF2A49 /* FBSDKLoginKit.framework */,
+				04DEA99922D8244600DF2A49 /* FBSDKShareKit.framework */,
 				A3DF3FAFAA009FEA9B452F50 /* Pods_Mioto_InternTests.framework */,
 			);
 			name = Frameworks;
@@ -166,7 +206,6 @@
 				CE6806E86A6A7D21FE53A880 /* Pods-Mioto InternTests.debug.xcconfig */,
 				1EF1046E45B9E6FD31CF8A7D /* Pods-Mioto InternTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -254,6 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0452EB2C22CB9AB000319783 /* LaunchScreen.storyboard in Resources */,
+				0433E43722D7564B00360CB4 /* GoogleService-Info.plist in Resources */,
 				0452EB2922CB9AB000319783 /* Assets.xcassets in Resources */,
 				0452EB2722CB9AAE00319783 /* Main.storyboard in Resources */,
 			);
@@ -341,6 +381,7 @@
 				0447638722CDDD4F00782E10 /* SignUpViewController.m in Sources */,
 				0452EB2F22CB9AB000319783 /* main.m in Sources */,
 				0452EB2122CB9AAE00319783 /* AppDelegate.m in Sources */,
+				0478298522D83F3900C189AF /* ProfileViewController.m in Sources */,
 				04009F1322CBAE7300266A16 /* UITextField.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -502,6 +543,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VC54UPHUD4;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Mioto\\ Intern",
+					"$(PROJECT_DIR)/Mioto\\ Intern",
+					"$(PROJECT_DIR)/Mioto\\ Intern",
+					"$(PROJECT_DIR)/Mioto\\ Intern",
+					"$(PROJECT_DIR)/FacebookSDK",
+				);
 				INFOPLIST_FILE = "Mioto Intern/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -520,6 +569,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VC54UPHUD4;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Mioto\\ Intern",
+					"$(PROJECT_DIR)/Mioto\\ Intern",
+					"$(PROJECT_DIR)/Mioto\\ Intern",
+					"$(PROJECT_DIR)/Mioto\\ Intern",
+					"$(PROJECT_DIR)/FacebookSDK",
+				);
 				INFOPLIST_FILE = "Mioto Intern/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

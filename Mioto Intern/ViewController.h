@@ -7,6 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UITextField.h"
+#import <FirebaseDatabase/FirebaseDatabase.h>
+#import <FirebaseAuth/FirebaseAuth.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FIRFacebookAuthProvider.h>
 
 @interface ViewController : UIViewController
 

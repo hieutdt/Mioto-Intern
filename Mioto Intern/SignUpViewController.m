@@ -19,12 +19,15 @@
 @property (strong, nonatomic) IBOutlet UIButton *button_Checkbox1;
 @property (strong, nonatomic) IBOutlet UIButton *button_Checkbox2;
 
+@property (strong, nonatomic) FIRDatabaseReference *ref;
 @property bool checkBox1_Checked;
 @property bool checkBox2_Checked;
 
 - (IBAction)backLogInView:(id)sender;
 - (IBAction)checkBox1OnClick:(id)sender;
 - (IBAction)checkBox2OnClick:(id)sender;
+- (IBAction)signUpOnClick:(id)sender;
+
 
 
 @end
@@ -83,6 +86,27 @@
     else {
         [_button_Checkbox2 setImage:[UIImage imageNamed:@"uncheck"] forState:UIControlStateNormal];
         _checkBox2_Checked = false;
+    }
+}
+
+//Sign Up new User --------------------------------------------------------------------
+- (IBAction)signUpOnClick:(id)sender {
+    self.ref = [[FIRDatabase database] reference];
+    
+    if (self.ref != nil) {
+        [[FIRAuth auth] createUserWithEmail:textField_EmailOrPhone.text password:textField_Password.text completion:^(FIRAuthDataResult * _Nullable authResult, NSError * _Nullable error) {
+            
+            //add new user to Users table in database
+            [[[self.ref child:@"users"] child:authResult.user.uid] setValue:@{@"name": self->textField_Name.text}];
+            
+            //add new user to Info table
+            [[self.ref child:authResult.user.uid] setValue:@{@"name": self->textField_Name.text, @"birth": @"1/1/1900", @"email": self->textField_EmailOrPhone.text, @"gender:": @"Nam"}];
+            
+            
+            [self dismissViewControllerAnimated:true completion:nil];
+        }];
+    } else {
+        NSLog(@"can't reference");
     }
 }
 

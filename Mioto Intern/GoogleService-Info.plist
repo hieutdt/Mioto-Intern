@@ -32,5 +32,18 @@
 	<string>1:44350808978:ios:891f737dbcb0bfab</string>
 	<key>DATABASE_URL</key>
 	<string>https://mioto-intern.firebaseio.com</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+	  <dict>
+	  <key>CFBundleURLSchemes</key>
+	  <array>
+	    <string>fb879187625775428</string>
+	  </array>
+	  </dict>
+	</array>
+	<key>FacebookAppID</key>
+	<string>879187625775428</string>
+	<key>FacebookDisplayName</key>
+	<string>Mioto Intern</string>
 </dict>
 </plist>

@@ -6,6 +6,13 @@ target 'Mioto Intern' do
   use_frameworks!
 
   # Pods for Mioto Intern
+  pod 'Firebase'
+  pod 'Firebase/Core'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Database'
+  pod 'FBSDKCoreKit'
+  pod 'FBSDKLoginKit'
+  pod 'FBSDKShareKit'
 
   target 'Mioto InternTests' do
     inherit! :search_paths
@@ -13,5 +20,3 @@ target 'Mioto Intern' do
   end
 
 end
-
-pod 'Firebase/Core'
