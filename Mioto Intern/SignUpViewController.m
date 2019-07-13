@@ -100,7 +100,7 @@
             [[[self.ref child:@"users"] child:authResult.user.uid] setValue:@{@"name": self->textField_Name.text}];
             
             //add new user to Info table
-            [[self.ref child:authResult.user.uid] setValue:@{@"name": self->textField_Name.text, @"birth": @"1/1/1900", @"email": self->textField_EmailOrPhone.text, @"gender:": @"Nam"}];
+            [[self.ref child:authResult.user.uid] setValue:@{@"name": self->textField_Name.text, @"birth": @"1/1/1900", @"email": self->textField_EmailOrPhone.text, @"gender:": @"Nam", @"avatar": @"nil"}];
             
             
             [self dismissViewControllerAnimated:true completion:nil];

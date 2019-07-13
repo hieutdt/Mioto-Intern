@@ -65,8 +65,13 @@
     }];
 }
 
+//Log in with Facebook account --------------------------------------------------------
 - (IBAction)facebookLoginOnClick:(id)sender {
+    //create login manager
     FBSDKLoginManager *loginManager = [[FBSDKLoginManager alloc] init];
+    
+    //set up Firebase reference
+    self.ref = [[FIRDatabase database] reference];
     
     [loginManager logOut];
     [FBSDKAccessToken setCurrentAccessToken:nil];
@@ -95,10 +100,24 @@
                     NSLog(@"Log in to Facebook succeed!");
                 }];
                 
-                //get profile
+                //get profile of User and save it to Profile database in Firebase
                 [FBSDKProfile loadCurrentProfileWithCompletion:
                  ^(FBSDKProfile *profile, NSError *error) {
                      
+                     [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters: @{@"fields":@"id, name, first_name, last_name, picture.type(large), email, gender"}]
+                      startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+                          if (!error) {
+                              //get data from result
+                              NSLog(@"fetched user:%@", result);
+                              NSString *name = result[@"name"];
+                              NSString *avatarURL = result[@"picture"][@"data"][@"url"];
+                              NSString *email = result[@"email"];
+                              NSString *facebookID = result[@"id"];
+                              
+                              //write to Profile table of Firebase database
+                              [[self.ref child:facebookID] setValue:@{@"name": name, @"birth": @"1/1/1900", @"email": email, @"gender:": @"Nam", @"avatar": avatarURL}];
+                          }
+                      }];
                  }];
                 
                 //open Profile view controller
