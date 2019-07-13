@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "ProfileViewController.h"
 
 @interface ViewController ()
 
@@ -16,6 +17,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *button_FacebookLogin;
 
 @property (strong, nonatomic) FIRDatabaseReference *ref;
+@property (nonatomic) NSString *uid;
 
 - (IBAction)pushSignUpView:(id)sender;
 - (IBAction)logInOnClick:(id)sender;
@@ -65,6 +67,15 @@
     }];
 }
 
+//prepare to pass data to Profile view controller
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"ProfileSegue"]) {
+        ProfileViewController *destinationVC = segue.destinationViewController;
+        NSLog(@"Source's uid is %@", self.uid);
+        destinationVC.uid = self.uid;
+    }
+}
+
 //Log in with Facebook account --------------------------------------------------------
 - (IBAction)facebookLoginOnClick:(id)sender {
     //create login manager
@@ -104,7 +115,7 @@
                 [FBSDKProfile loadCurrentProfileWithCompletion:
                  ^(FBSDKProfile *profile, NSError *error) {
                      
-                     [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters: @{@"fields":@"id, name, first_name, last_name, picture.type(large), email, gender"}]
+                     [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters: @{@"fields":@"id, name, first_name, last_name, picture.type(large), email, gender, cover.type(large)"}]
                       startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
                           if (!error) {
                               //get data from result
@@ -114,14 +125,19 @@
                               NSString *email = result[@"email"];
                               NSString *facebookID = result[@"id"];
                               
+                              
+                              
                               //write to Profile table of Firebase database
                               [[self.ref child:facebookID] setValue:@{@"name": name, @"birth": @"1/1/1900", @"email": email, @"gender:": @"Nam", @"avatar": avatarURL}];
+                              
+                              //set UID to pass to Profile view controller
+                              self.uid = [facebookID copy];
+                              
+                              //open Profile view controller
+                              [self performSegueWithIdentifier:@"ProfileSegue" sender:self];
                           }
                       }];
                  }];
-                
-                //open Profile view controller
-                [self performSegueWithIdentifier:@"ProfileSegue" sender:self];
                 
                 //sign out after
                 NSError *signOutError;

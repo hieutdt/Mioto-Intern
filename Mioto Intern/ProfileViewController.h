@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ProfileViewController : UIViewController
 
+@property NSString *uid;
+
 @end
 
 NS_ASSUME_NONNULL_END
