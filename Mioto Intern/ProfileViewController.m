@@ -7,6 +7,7 @@
 //
 
 #import "ProfileViewController.h"
+#import "EditProfileViewController.h"
 #import <FIRDatabase.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
@@ -48,19 +49,16 @@
 @synthesize imageView_Background;
 @synthesize TabBarItem_Profile;
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    self.ref = [[FIRDatabase database] reference];
-    
-    NSLog(@"This UID is: %@", self.uid);
-    
+//Even if you get back from another screen, this function will still be called
+- (void)viewWillAppear:(BOOL)animated {
     //get data from Firebase database with UID
+    NSLog(@"View Will Appear called!");
+    
     [[ref child:self.uid] observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         NSString *name = snapshot.value[@"name"];
         NSString *email = snapshot.value[@"email"];
         NSString *avatarURL = snapshot.value[@"avatar"];
-        NSString *gender = snapshot.value[@"gender"];   
+        NSString *gender = snapshot.value[@"gender"];
         NSString *birth = snapshot.value[@"birth"];
         
         if (![avatarURL  isEqual: @"nil"]) {
@@ -75,6 +73,15 @@
         [self.label_Gender setText:gender];
         [self.label_Email setText:email];
     }];
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    self.ref = [[FIRDatabase database] reference];
+    
+    NSLog(@"This UID is: %@", self.uid);
+    
     
     //setting avatar image view
     imageView_Avatar.layer.cornerRadius= imageView_Avatar.layer.bounds.size.width * .5;
@@ -127,6 +134,13 @@
 
 
 // Button edit handlers //////////////////////////////////////////////
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"EditProfileSegue"]) {
+        EditProfileViewController *destinationVC = segue.destinationViewController;
+        destinationVC.uid = self.uid;
+    }
+}
+
 - (IBAction)editButtonOnClick:(id)sender {
     //set that button to normal state UI
     [self.button_Edit setBackgroundColor:[UIColor whiteColor]];

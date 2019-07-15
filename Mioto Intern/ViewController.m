@@ -55,8 +55,18 @@
     [button_FacebookLogin setImage:[UIImage imageNamed:@"icons8-facebook-60"] forState:normal];
     button_FacebookLogin.tintColor = [UIColor whiteColor];
     
+    [button_FacebookLogin setRippleOverBounds:YES];
+    [button_FacebookLogin setRipplePercent:1.0f];
+    [button_FacebookLogin setRippleColor:[UIColor colorWithRed:37/255.0f green:97/255.0f blue:144/255.0f alpha:1]];
+    [button_FacebookLogin setRippleBackgroundColor:[UIColor colorWithRed:30/255.0f green:84/255.0f blue:126/255.0f alpha:1]];
+    
     //setting Login button
     _button_Login.layer.backgroundColor = [UIColor colorWithRed:76/255.0f green:203/255.0f blue:45/255.0f alpha:1].CGColor;
+    
+    [_button_Login setRippleOverBounds:YES];
+    [_button_Login setRipplePercent:1.0f];
+    [_button_Login setRippleColor:[UIColor colorWithRed:42/255.0f green:122/255.0f blue:34/255.0f alpha:1]];
+    [_button_Login setRippleBackgroundColor:[UIColor colorWithRed:41/255.0f green:99/255.0f blue:27/255.0f alpha:1]];
 }
 
 //Push to Sign Up View controller

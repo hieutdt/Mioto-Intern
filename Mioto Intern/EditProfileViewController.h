@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface EditProfileViewController : UIViewController <UIImagePickerControllerDelegate>
 
+@property (nonatomic) NSString *uid;
+
 @end
 
 NS_ASSUME_NONNULL_END
