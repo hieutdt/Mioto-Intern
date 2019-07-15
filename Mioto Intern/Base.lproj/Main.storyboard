@@ -59,6 +59,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
+                                    <action selector="logInButtonTouchDown:" destination="BYZ-38-t0r" eventType="touchDown" id="SGf-iW-bke"/>
+                                    <action selector="logInButtonTouchUpOutside:" destination="BYZ-38-t0r" eventType="touchUpOutside" id="ocS-Hl-uJu"/>
                                     <action selector="logInOnClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bT9-uR-pKq"/>
                                 </connections>
                             </button>
@@ -132,6 +134,7 @@
                     </view>
                     <connections>
                         <outlet property="button_FacebookLogin" destination="MyU-Ux-j0b" id="m9t-FX-UBh"/>
+                        <outlet property="button_Login" destination="4qU-fY-pSH" id="Crm-Yf-ru7"/>
                         <outlet property="imageView_Background" destination="uCC-iX-lKo" id="3qz-M0-xye"/>
                         <outlet property="textField_Password" destination="uL0-ZC-7Vg" id="6GZ-nQ-W0v"/>
                         <outlet property="textField_Username" destination="Vzi-RV-Skl" id="9SE-U6-qji"/>
@@ -289,7 +292,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="-1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DdF-f9-03O">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="755"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
@@ -359,7 +362,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F19-A8-2XY">
-                                <rect key="frame" x="0.0" y="571" width="414" height="228"/>
+                                <rect key="frame" x="0.0" y="571" width="414" height="242"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Điện thoại" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YaW-yO-yvj">
@@ -407,11 +410,21 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L3j-fT-31N">
-                                <rect key="frame" x="341" y="64" width="45" height="45"/>
+                                <rect key="frame" x="312" y="51" width="93" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                <state key="normal" title="Chỉnh sửa">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="editButtonOnClick:" destination="ZS9-Ue-Pa0" eventType="touchUpInside" id="Ixp-A3-UQF"/>
+                                    <action selector="editButtonTouchCancel:" destination="ZS9-Ue-Pa0" eventType="touchUpOutside" id="hsM-Nk-pCL"/>
+                                    <action selector="editButtonTouchDown:" destination="ZS9-Ue-Pa0" eventType="touchDown" id="bgy-OR-yEL"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="3ii-VB-KBP"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Thông tin" id="AGY-gM-0kn"/>
@@ -439,17 +452,40 @@
         <!--Edit View Controller-->
         <scene sceneID="X0e-GP-JnA">
             <objects>
-                <viewController title="Edit View Controller" id="fpk-3s-E80" sceneMemberID="viewController">
+                <viewController title="Edit View Controller" id="fpk-3s-E80" customClass="EditProfileViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pqg-u5-yZm">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gT2-bK-w4V">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="raL-l8-CMg">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="157"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G1k-Bn-96i">
+                                        <rect key="frame" x="0.0" y="156" width="414" height="179"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Cc-mD-K14">
+                                        <rect key="frame" x="142" y="90" width="130" height="130"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.84988889729999995" green="1" blue="0.59234758519999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="2Ya-EL-eX6"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kal-GP-WJU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3974" y="-181"/>
+            <point key="canvasLocation" x="3973.913043478261" y="-181.47321428571428"/>
         </scene>
         <!--Friend List View Controller-->
         <scene sceneID="bG1-P0-gl7">
@@ -473,6 +509,7 @@
                 <tabBarController title="Tab Bar View Controller" automaticallyAdjustsScrollViewInsets="NO" id="oRf-mq-Ysw" customClass="TabBarControllerViewController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6yP-yH-4Xb">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>

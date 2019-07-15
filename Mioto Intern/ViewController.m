@@ -8,13 +8,15 @@
 
 #import "ViewController.h"
 #import "TabBarControllerViewController.h"
+#import "Mioto_Intern-Swift.h"
 
 @interface ViewController ()
 
 @property (strong, nonatomic) IBOutlet UIImageView *imageView_Background;
 @property (strong, nonatomic) IBOutlet UITextField *textField_Password;
 @property (strong, nonatomic) IBOutlet UITextField *textField_Username;
-@property (strong, nonatomic) IBOutlet UIButton *button_FacebookLogin;
+@property (strong, nonatomic) IBOutlet ZFRippleButton *button_FacebookLogin;
+@property (strong, nonatomic) IBOutlet ZFRippleButton *button_Login;
 
 @property (strong, nonatomic) FIRDatabaseReference *ref;
 @property (nonatomic) NSString *uid;
@@ -22,6 +24,8 @@
 - (IBAction)pushSignUpView:(id)sender;
 - (IBAction)logInOnClick:(id)sender;
 - (IBAction)facebookLoginOnClick:(id)sender;
+- (IBAction)logInButtonTouchDown:(id)sender;
+- (IBAction)logInButtonTouchUpOutside:(id)sender;
 
 @end
 
@@ -50,6 +54,9 @@
     
     [button_FacebookLogin setImage:[UIImage imageNamed:@"icons8-facebook-60"] forState:normal];
     button_FacebookLogin.tintColor = [UIColor whiteColor];
+    
+    //setting Login button
+    _button_Login.layer.backgroundColor = [UIColor colorWithRed:76/255.0f green:203/255.0f blue:45/255.0f alpha:1].CGColor;
 }
 
 //Push to Sign Up View controller
@@ -59,6 +66,9 @@
 
 //LOG IN CLICK--------------------------------------------------------------
 - (IBAction)logInOnClick:(id)sender {
+    //set up this button to normal state
+    self.button_Login.layer.backgroundColor = [UIColor colorWithRed:76/255.0f green:203/255.0f blue:45/255.0f alpha:1].CGColor;
+    
     //Email/password auth
     self.ref = [[FIRDatabase database] reference];
     
@@ -68,6 +78,8 @@
             [self performSegueWithIdentifier:@"TabBarSegue" sender:self];
         }
     }];
+    
+    
 }
 
 //prepare to pass data to Tab bar view controller
@@ -144,6 +156,14 @@
             }
         }
     }];
+}
+
+- (IBAction)logInButtonTouchDown:(id)sender {
+    self.button_Login.layer.backgroundColor = [UIColor colorWithRed:44/255.0f green:142/255.0f blue:21/255.0f alpha:1].CGColor;
+}
+
+- (IBAction)logInButtonTouchUpOutside:(id)sender {
+    self.button_Login.layer.backgroundColor = [UIColor colorWithRed:76/255.0f green:203/255.0f blue:45/255.0f alpha:1].CGColor;
 }
 
 @end

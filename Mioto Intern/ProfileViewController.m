@@ -13,6 +13,7 @@
 
 @interface ProfileViewController ()
 
+//Properties---------------------------------------------------------
 @property (strong, nonatomic) FIRDatabaseReference *ref;
 @property (strong, nonatomic) IBOutlet UIImageView *imageView_Avatar;
 @property (strong, nonatomic) IBOutlet UIImageView *imageView_Background;
@@ -30,11 +31,16 @@
 @property (strong, nonatomic) IBOutlet UIImageView *subViewBirth;
 @property (strong, nonatomic) IBOutlet UIImageView *subViewContact;
 
+//Methods------------------------------------------------------------
 - (IBAction)backButtonOnClick:(id)sender;
 - (void)setShadowSubImageView: (UIImageView*) imageView;
+- (IBAction)editButtonOnClick:(id)sender;
+- (IBAction)editButtonTouchDown:(id)sender;
+- (IBAction)editButtonTouchCancel:(id)sender;
 
 @end
 
+// IMPLEMENT /////////////////////////////////////////////////////////////
 @implementation ProfileViewController
 @synthesize ref;
 @synthesize uid;
@@ -86,12 +92,12 @@
     
     //setting Edit butotn
     //[[self.button_Edit imageView] setContentMode:UIViewContentModeScaleAspectFit];
-    [self.button_Edit setImage:[UIImage imageNamed:@"edit"] forState:UIControlStateNormal];
     [self.button_Edit setBackgroundColor:[UIColor whiteColor]];
-    self.button_Edit.layer.cornerRadius = _button_Edit.layer.bounds.size.width * 0.5;
+    self.button_Edit.layer.cornerRadius = 10;
     self.button_Edit.layer.masksToBounds = YES;
-    
-    //[TabBarItem_Profile setImage:[UIImage imageNamed:@"user"]];
+    self.button_Edit.layer.borderWidth = 2;
+    self.button_Edit.layer.borderColor = [UIColor colorWithRed:41/255.0f green:146/255.0f blue:185/255.0f alpha:1].CGColor;
+    [self.button_Edit setTitleColor:[UIColor colorWithRed:41/255.0f green:146/255.0f blue:185/255.0f alpha:1] forState:UIControlStateNormal];
 }
 
 - (IBAction)backButtonOnClick:(id)sender {
@@ -117,6 +123,30 @@
     imageView.layer.shadowColor = [UIColor darkGrayColor].CGColor;
     imageView.layer.shadowPath = [UIBezierPath bezierPathWithRect:imageView.bounds].CGPath;
     imageView.backgroundColor = [UIColor whiteColor];
+}
+
+
+// Button edit handlers //////////////////////////////////////////////
+- (IBAction)editButtonOnClick:(id)sender {
+    //set that button to normal state UI
+    [self.button_Edit setBackgroundColor:[UIColor whiteColor]];
+    self.button_Edit.layer.borderColor = [UIColor colorWithRed:41/255.0f green:146/255.0f blue:185/255.0f alpha:1].CGColor;
+    [self.button_Edit setTitleColor:[UIColor colorWithRed:41/255.0f green:146/255.0f blue:185/255.0f alpha:1] forState:UIControlStateNormal];
+    
+    //go to Edit profile view controller
+    [self performSegueWithIdentifier:@"EditProfileSegue" sender:self];
+}
+
+- (IBAction)editButtonTouchDown:(id)sender {
+    [self.button_Edit setBackgroundColor:[UIColor colorWithRed:41/255.0f green:146/255.0f blue:185/255.0f alpha:1]];
+    self.button_Edit.layer.borderColor = [UIColor whiteColor].CGColor;
+    [self.button_Edit setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+}
+
+- (IBAction)editButtonTouchCancel:(id)sender {
+    [self.button_Edit setBackgroundColor:[UIColor whiteColor]];
+    self.button_Edit.layer.borderColor = [UIColor colorWithRed:41/255.0f green:146/255.0f blue:185/255.0f alpha:1].CGColor;
+    [self.button_Edit setTitleColor:[UIColor colorWithRed:41/255.0f green:146/255.0f blue:185/255.0f alpha:1] forState:UIControlStateNormal];
 }
 
 @end
