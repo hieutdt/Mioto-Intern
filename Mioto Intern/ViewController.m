@@ -26,6 +26,7 @@
 - (IBAction)facebookLoginOnClick:(id)sender;
 - (IBAction)logInButtonTouchDown:(id)sender;
 - (IBAction)logInButtonTouchUpOutside:(id)sender;
+- (void)showAlertWithTitle:(NSString*) title andDescription: (NSString*) des;
 
 @end
 
@@ -76,6 +77,14 @@
 
 //LOG IN CLICK--------------------------------------------------------------
 - (IBAction)logInOnClick:(id)sender {
+    //check
+    if (self.textField_Username.text.length == 0) {
+        [self showAlertWithTitle:@"Đăng nhập thất bại" andDescription:@"Tên đăng nhập không được để trống!"];
+    }
+    else if (self.textField_Password.text.length == 0) {
+        [self showAlertWithTitle:@"Đăng nhập thất bại" andDescription:@"Mật khẩu không được để trống!"];
+    }
+    
     //set up this button to normal state
     self.button_Login.layer.backgroundColor = [UIColor colorWithRed:76/255.0f green:203/255.0f blue:45/255.0f alpha:1].CGColor;
     
@@ -150,10 +159,13 @@
                               NSString *email = result[@"email"];
                               NSString *facebookID = result[@"id"];
                               
-                              
-                              
-                              //write to Profile table of Firebase database
-                              [[self.ref child:facebookID] setValue:@{@"name": name, @"birth": @"1/1/1900", @"email": email, @"gender": @"Nam", @"avatar": avatarURL}];
+                              //check this Facebook user in database
+                              [[self->_ref child:facebookID] observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+                                  if (![snapshot hasChild:@"email"]) {
+                                      //write to Profile table of Firebase database
+                                      [[self.ref child:facebookID] setValue:@{@"name": name, @"birth": @"1/1/1900", @"email": email, @"gender": @"Nam", @"avatar": avatarURL, @"phone": @"000000000"}];
+                                  }
+                              }];
                               
                               //set UID to pass to Profile view controller
                               self.uid = [facebookID copy];
@@ -174,6 +186,20 @@
 
 - (IBAction)logInButtonTouchUpOutside:(id)sender {
     self.button_Login.layer.backgroundColor = [UIColor colorWithRed:76/255.0f green:203/255.0f blue:45/255.0f alpha:1].CGColor;
+}
+
+- (void)showAlertWithTitle:(NSString*) title andDescription: (NSString*) des {
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:title message:des preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* yesButton = [UIAlertAction
+                                actionWithTitle:@"OK"
+                                style:UIAlertActionStyleDefault
+                                handler:^(UIAlertAction * action) {
+                                    //nothing
+                                }];
+    
+    [alert addAction:yesButton];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 @end

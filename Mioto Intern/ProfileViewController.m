@@ -31,6 +31,8 @@
 @property (strong, nonatomic) IBOutlet UIImageView *subViewName;
 @property (strong, nonatomic) IBOutlet UIImageView *subViewBirth;
 @property (strong, nonatomic) IBOutlet UIImageView *subViewContact;
+@property (strong, nonatomic) IBOutlet UIButton *button_FacebookConfirm;
+@property (strong, nonatomic) IBOutlet UILabel *label_Phonenumber;
 
 //Methods------------------------------------------------------------
 - (IBAction)backButtonOnClick:(id)sender;
@@ -60,8 +62,9 @@
         NSString *avatarURL = snapshot.value[@"avatar"];
         NSString *gender = snapshot.value[@"gender"];
         NSString *birth = snapshot.value[@"birth"];
+        NSString *phoneNumber = snapshot.value[@"phone"];
         
-        if (![avatarURL  isEqual: @"nil"]) {
+        if (![avatarURL isEqual: @"nil"]) {
             [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:avatarURL]] queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
                 self.imageView_Avatar.image = [UIImage imageWithData:data];
             }];
@@ -72,7 +75,11 @@
         [self.label_Birth setText:birth];
         [self.label_Gender setText:gender];
         [self.label_Email setText:email];
+        [self.label_Phonenumber setText:phoneNumber];
     }];
+    
+    [self.button_FacebookConfirm setImage:[UIImage imageNamed:@"warning"] forState:UIControlStateNormal];
+    self.button_FacebookConfirm.imageView.contentMode = UIViewContentModeScaleToFill;
 }
 
 - (void)viewDidLoad {
