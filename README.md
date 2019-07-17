@@ -29,5 +29,6 @@ Password: 12345678
 
 - Phải test ngày tháng năm của người dùng cập nhật có hợp lệ không nhưng em chưa làm.
 - Giao diện nên đẹp hơn và căn lề để hiển thị đúng trên các đời máy khác nhau. - Lưu trữ và hiển thị thông tin ngày bắt đầu tạo tài khoản.
+- Nên có thêm Circular Process Bar trong những lúc load để trải nghiệm người dùng được tốt hơn.
 
 - Vì chỉ mới làm có 4 ngày nên em đã hoàn thành các tính năng chính, còn các bước kiểm tra các lỗi xảy ra từ phía người dùng thì em chưa hoàn thành. Mong anh thông cảm.
