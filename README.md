@@ -21,9 +21,7 @@ Email: test@gmail.com
 Password: 12345678
 ```
 
-- **Lưu ý khi test**:
-→Vì quá trình load avatar tất cả đều được code dưới dạng tiến trình chạy song song để không làm đứng app trong quá trình load hình ảnh nên nếu avatar chưa hiển thị ngay thì có thể là do tốc độ mạng.
-Người thực hiện: Trần Đình Tôn Hiếu
+- **Lưu ý khi test**: Vì quá trình load avatar tất cả đều được code dưới dạng tiến trình chạy song song để không làm đứng app trong quá trình load hình ảnh nên nếu avatar chưa hiển thị ngay thì có thể là do tốc độ mạng.
  
 →Lúc cập nhật thông tin thì cũng sẽ phải upload avatar lên Firebase storage nên có thể hơi chậm tuỳ thuộc vào tốc độ mạng.
 
