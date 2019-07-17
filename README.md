@@ -5,9 +5,8 @@
 - **Đăng ký tài khoản bằng Email/Password:** Dữ liệu người dùng sẽ được tạo mặc định vào Firebase database. Mỗi người dùng sau khi đăng khí sẽ có một UID do Google Firebase tự cung cấp.
 
 - **Đăng nhập:** Có thể đăng nhập bằng tài khoản Email đã tạo hoặc bằng tài khoản Facebook. UID của người dùng đăng nhập bằng Facebook sẽ là ID từ tài khoản Facebook (Vì ID của Tài khoản FB chỉ toàn số, trong khi UID của Google Firebase cung cấp bao gồm vừa số và chữ và số lượng có thể cung cấp là quá lớn nên sẽ không có tình trạng trùng UID (tỉ lệ trùng không đáng nói tới)). Thông tin của người dùng sẽ là những thông tin có thể lấy được từ Facebook API. Những thông tin không được phép lấy sẽ do người dùng tự chỉnh sửa. Avatar sẽ lấy URL từ Avatar của Facebook.
-```
-Nếu tài khoản Facebook này đã có trong Database thì sẽ không thực hiện bước ghi đè thông tin lấy từ Facebook, để bảo toàn thông tin mà người dùng đã chỉnh sửa trong Firebase database của project.
-```
+
+- Nếu tài khoản Facebook này đã có trong Database thì sẽ không thực hiện bước ghi đè thông tin lấy từ Facebook, để bảo toàn thông tin mà người dùng đã chỉnh sửa trong Firebase database của project.
 
 - **Xem thông tin cá nhân.**
 
@@ -32,4 +31,5 @@ Người thực hiện: Trần Đình Tôn Hiếu
 
 - Phải test ngày tháng năm của người dùng cập nhật có hợp lệ không nhưng em chưa làm.
 - Giao diện nên đẹp hơn và căn lề để hiển thị đúng trên các đời máy khác nhau. - Lưu trữ và hiển thị thông tin ngày bắt đầu tạo tài khoản.
-→Vì chỉ mới làm có 4 ngày nên em đã hoàn thành các tính năng chính, còn các bước kiểm tra các lỗi xảy ra từ phía người dùng thì em chưa hoàn thành. Mong anh thông cảm.
+
+- Vì chỉ mới làm có 4 ngày nên em đã hoàn thành các tính năng chính, còn các bước kiểm tra các lỗi xảy ra từ phía người dùng thì em chưa hoàn thành. Mong anh thông cảm.
