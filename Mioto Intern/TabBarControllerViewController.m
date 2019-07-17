@@ -8,6 +8,7 @@
 
 #import "TabBarControllerViewController.h"
 #import "ProfileViewController.h"
+#import "FriendListViewController.h"
 
 @interface TabBarControllerViewController ()
 
@@ -20,13 +21,10 @@
     
     ProfileViewController *profileVC = (ProfileViewController *) [self.viewControllers objectAtIndex:0];
     profileVC.uid = self.uid;
+    
+    FriendListViewController *friendListVC = (FriendListViewController*) [self.viewControllers objectAtIndex:1];
+    friendListVC.uid = self.uid;
 }
 
-/*- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
-{
-    ProfileViewController *controllerB = (ProfileViewController *) [tabBarController.viewControllers objectAtIndex:0];
-    
-    controllerB.uid = self.uid;
-}*/
 
 @end

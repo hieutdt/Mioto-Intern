@@ -30,13 +30,12 @@
 
 @property (strong, nonatomic) IBOutlet UIImageView *subViewName;
 @property (strong, nonatomic) IBOutlet UIImageView *subViewBirth;
-@property (strong, nonatomic) IBOutlet UIImageView *subViewContact;
-@property (strong, nonatomic) IBOutlet UIButton *button_FacebookConfirm;
+@property (strong, nonatomic) IBOutlet UIView *subviewContact;
 @property (strong, nonatomic) IBOutlet UILabel *label_Phonenumber;
 
 //Methods------------------------------------------------------------
 - (IBAction)backButtonOnClick:(id)sender;
-- (void)setShadowSubImageView: (UIImageView*) imageView;
+- (void)setShadowSubImageView: (UIView*) imageView;
 - (IBAction)editButtonOnClick:(id)sender;
 - (IBAction)editButtonTouchDown:(id)sender;
 - (IBAction)editButtonTouchCancel:(id)sender;
@@ -52,8 +51,9 @@
 @synthesize TabBarItem_Profile;
 
 //Even if you get back from another screen, this function will still be called
-- (void)viewWillAppear:(BOOL)animated {
+- (void)viewDidAppear:(BOOL)animated {
     //get data from Firebase database with UID
+    NSLog(@"This UID = %@", self.uid);
     NSLog(@"View Will Appear called!");
     
     [[ref child:self.uid] observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
@@ -77,9 +77,6 @@
         [self.label_Email setText:email];
         [self.label_Phonenumber setText:phoneNumber];
     }];
-    
-    [self.button_FacebookConfirm setImage:[UIImage imageNamed:@"warning"] forState:UIControlStateNormal];
-    self.button_FacebookConfirm.imageView.contentMode = UIViewContentModeScaleToFill;
 }
 
 - (void)viewDidLoad {
@@ -102,7 +99,7 @@
     //setting name subview
     [self setShadowSubImageView:_subViewName];
     [self setShadowSubImageView:_subViewBirth];
-    [self setShadowSubImageView:_subViewContact];
+    [self setShadowSubImageView:_subviewContact];
     
     //setting Edit butotn
     //[[self.button_Edit imageView] setContentMode:UIViewContentModeScaleAspectFit];
@@ -128,7 +125,7 @@
     [self dismissViewControllerAnimated:true completion:nil];
 }
 
-- (void)setShadowSubImageView: (UIImageView*) imageView {
+- (void)setShadowSubImageView: (UIView*) imageView {
     imageView.layer.masksToBounds = NO;
     imageView.layer.cornerRadius = 5.f;
     imageView.layer.shadowOffset = CGSizeMake(.0f,2.5f);

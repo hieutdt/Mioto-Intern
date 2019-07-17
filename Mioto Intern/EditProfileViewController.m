@@ -22,6 +22,7 @@
 @property (nonatomic) NSString *email;
 @property (nonatomic) NSString *avatarURL;
 @property (nonatomic) NSString *birth;
+@property (nonatomic) NSString *phone;
 
 @property (strong, nonatomic) FIRDatabaseReference *ref;
 @property (strong, nonatomic) FIRStorageReference *storageRef;
@@ -112,6 +113,7 @@
         self->_avatarURL = [snapshot.value[@"avatar"] copy];
         self->_gender = [snapshot.value[@"gender"] copy];
         self->_birth = [snapshot.value[@"birth"] copy];
+        self->_phone = [snapshot.value[@"phone"] copy];
         
         //set up gender buttons here
         if ([self->_gender isEqualToString:@"Nam"]) {
@@ -151,6 +153,9 @@
         
         //set up email label
         [self.label_Email setText:self->_email];
+        
+        //set up phonenumber text field
+        [self.textField_PhoneNumber setText:self->_phone];
     }];
 }
 
@@ -185,13 +190,11 @@
                                         actionWithTitle:@"OK"
                                         style:UIAlertActionStyleDefault
                                         handler:^(UIAlertAction * action) {
-                                            //nothing
+                                            [self dismissViewControllerAnimated:true completion:nil];
                                         }];
             
             [alert addAction:yesButton];
             [self presentViewController:alert animated:YES completion:nil];
-            
-            [self dismissViewControllerAnimated:true completion:nil];
         }
     }];
 }

@@ -92,13 +92,14 @@
     self.ref = [[FIRDatabase database] reference];
     
     [[FIRAuth auth] signInWithEmail:textField_Username.text password:textField_Password.text completion:^(FIRAuthDataResult *_Nullable authData, NSError *_Nullable error) {
+        if (error) {
+            [self showAlertWithTitle:@"Đăng nhập thất bại!" andDescription:@"Tên đăng nhập hoặc mật khẩu không chính xác"];
+        }
         if (authData) {
             self.uid = authData.user.uid;
             [self performSegueWithIdentifier:@"TabBarSegue" sender:self];
         }
     }];
-    
-    
 }
 
 //prepare to pass data to Tab bar view controller

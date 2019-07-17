@@ -31,6 +31,7 @@
 - (IBAction)checkBox2OnClick:(id)sender;
 - (IBAction)signUpOnClick:(id)sender;
 
+- (void)showAlertWithTitle:(NSString*) title andDescription: (NSString*) des back:(BOOL)isBack;
 
 
 @end
@@ -110,22 +111,18 @@
 //Sign Up new User --------------------------------------------------------------------
 - (IBAction)signUpOnClick:(id)sender {
     if (textField_EmailOrPhone.text.length == 0) {
+        [self showAlertWithTitle:@"Đăng ký thất bại" andDescription:@"Địa chỉ Email không được để trống" back:false];
+        return;
+    }
+    
+    if (textField_Name.text.length == 0) {
+        [self showAlertWithTitle:@"Đăng ký thất bại" andDescription:@"Tên người dùng không được để trống" back:false];
         return;
     }
     
     //Check password
     if (![textField_Password.text isEqualToString:textField_PasswordAgain.text]) {
-        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Mật khẩu không trùng khớp" message:@"Vui lòng kiểm tra và thử lại!" preferredStyle:UIAlertControllerStyleAlert];
-        
-        UIAlertAction* yesButton = [UIAlertAction
-                                    actionWithTitle:@"Yes"
-                                    style:UIAlertActionStyleDefault
-                                    handler:^(UIAlertAction * action) {
-                                        //nothing
-                                    }];
-        
-        [alert addAction:yesButton];
-        [self presentViewController:alert animated:YES completion:nil];
+        [self showAlertWithTitle:@"Đăng ký thất bại" andDescription:@"Mật khẩu không trùng khớp" back:false];
         return;
     }
     
@@ -133,16 +130,35 @@
     
     if (self.ref != nil) {
         [[FIRAuth auth] createUserWithEmail:textField_EmailOrPhone.text password:textField_Password.text completion:^(FIRAuthDataResult * _Nullable authResult, NSError * _Nullable error) {
-            
+            if (error) {
+                [self showAlertWithTitle:@"Đăng ký thất bại!" andDescription:@"Email đã tồn tại hoặc Mật khẩu chưa đủ 8 ký tự!" back:false];
+                return;
+            }
             //add new user to Info table
             [[self.ref child:authResult.user.uid] setValue:@{@"name": self->textField_Name.text, @"birth": @"1/1/1900", @"email": self->textField_EmailOrPhone.text, @"gender": @"Nam", @"avatar": @"nil", @"phone": @"000000000"}];
             
-            
-            [self dismissViewControllerAnimated:true completion:nil];
+            //thong bao thanh cong
+            [self showAlertWithTitle:@"Đăng ký thành công!" andDescription:@"Vui lòng đăng nhập để cập nhật thông tin cá nhân!" back:true];
         }];
     } else {
         NSLog(@"can't reference");
     }
+}
+
+- (void)showAlertWithTitle:(NSString*) title andDescription: (NSString*) des back: (BOOL)isBack {
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:title message:des preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* yesButton = [UIAlertAction
+                                actionWithTitle:@"OK"
+                                style:UIAlertActionStyleDefault
+                                handler:^(UIAlertAction * action) {
+                                    if (isBack) {
+                                        [self dismissViewControllerAnimated:true completion:nil];
+                                    }
+                                }];
+    
+    [alert addAction:yesButton];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 @end
